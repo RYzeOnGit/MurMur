@@ -8,6 +8,7 @@ void main() {
   runApp(ChangeNotifierProvider(
     create: (context) => Themeprovider(),
     child: const MyApp(),
+  ));
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false ,
       home: Homepage(),
       theme: Provider.of<Themeprovider>(context).themeData,
+      // drawer: Drawer(),
+      // appBar: AppBar(),
     );
   }
 }
