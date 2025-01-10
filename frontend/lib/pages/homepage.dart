@@ -23,9 +23,25 @@ class _MyWidgetState extends State<Homepage> {
               fontSize: 30,
               ),
             ),
-          ],
-        ),
-      ),
+          SizedBox(height: 20),
+          ElevatedButton(
+              onPressed: () {
+                // Temporary action to test the button
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Get Started button pressed")),
+                );
+              },
+              child: Text(
+                "Get Started",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                ),
+            ),
+          ),
+        ],
+       ),
+      )
     );
   }
 }
