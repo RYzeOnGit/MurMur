@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "LoginPage.dart";
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -19,16 +20,16 @@ class _MyWidgetState extends State<Homepage> {
             Text(
               "Welcome to MurMur🐥👋",
               style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
+                color: Colors.white,
+                fontSize: 30,
               ),
             ),
-          SizedBox(height: 20),
-          ElevatedButton(
+            SizedBox(height: 20),
+            ElevatedButton(
               onPressed: () {
-                // Temporary action to test the button
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("Get Started button pressed")),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
                 );
               },
               child: Text(
@@ -37,11 +38,12 @@ class _MyWidgetState extends State<Homepage> {
                   color: Colors.black,
                   fontSize: 20,
                 ),
+              ),
             ),
-          ),
-        ],
-       ),
-      )
+          ],
+        ),
+      ),
     );
   }
 }
+
