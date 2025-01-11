@@ -22,26 +22,21 @@ class SignUpPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: ListView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(10),
-              child: const Text(
-                'Neeche se sign up karein💋',
-                style: TextStyle(
-                  color: Colors.pink,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 30,
-                ),
+            const Text(
+              'Neeche se sign up karein💋',
+              style: TextStyle(
+                color: Colors.pink,
+                fontWeight: FontWeight.w500,
+                fontSize: 25,
               ),
+              textAlign: TextAlign.center,
             ),
-            Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(10),
-              ),
-            Container(
-              padding: const EdgeInsets.all(10),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 500, // Adjust the width as needed
               child: TextField(
                 controller: usernameController,
                 decoration: const InputDecoration(
@@ -50,8 +45,9 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(10),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 500, // Adjust the width as needed
               child: TextField(
                 controller: emailController,
                 decoration: const InputDecoration(
@@ -60,8 +56,9 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(10),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 500, // Adjust the width as needed
               child: TextField(
                 controller: passwordController,
                 obscureText: true,
@@ -71,6 +68,7 @@ class SignUpPage extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 10),
             TextButton(
               onPressed: () {
                 // Forgot password functionality
@@ -80,9 +78,9 @@ class SignUpPage extends StatelessWidget {
                 style: TextStyle(color: Colors.pink),
               ),
             ),
-            Container(
-              height: 50,
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 200, // Adjust the width as needed
               child: ElevatedButton(
                 onPressed: () {
                   print("Username: ${usernameController.text}");
@@ -91,9 +89,11 @@ class SignUpPage extends StatelessWidget {
                 },
                 child: const Text(
                   'Sign Up',
-                  style: TextStyle(color: Colors.black)),
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
             ),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -103,7 +103,7 @@ class SignUpPage extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   child: const Text(
-                    'Sign in',
+                    'Sign In',
                     style: TextStyle(fontSize: 20, color: Colors.pink),
                   ),
                 ),
