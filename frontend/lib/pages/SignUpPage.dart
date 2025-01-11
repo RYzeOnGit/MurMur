@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'SignUpPage.dart';
 
-class LoginPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
-          "Login Page",
+        title: const Text(
+          "Sign Up Page",
           style: TextStyle(
             color: Colors.white,
           ),
         ),
-        iconTheme: IconThemeData(
-          color: Colors.white
-          ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+        backgroundColor: Colors.black,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -28,7 +28,7 @@ class LoginPage extends StatelessWidget {
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
               child: const Text(
-                'Neeche login karein💋',
+                'Neeche se sign up karein💋',
                 style: TextStyle(
                   color: Colors.pink,
                   fontWeight: FontWeight.w500,
@@ -37,12 +37,26 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              ),
+            Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
                 controller: usernameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'User Name',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: emailController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email',
                 ),
               ),
             ),
@@ -63,6 +77,7 @@ class LoginPage extends StatelessWidget {
               },
               child: const Text(
                 'Forgot Password',
+                style: TextStyle(color: Colors.pink),
               ),
             ),
             Container(
@@ -71,27 +86,24 @@ class LoginPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   print("Username: ${usernameController.text}");
+                  print("Email: ${emailController.text}");
                   print("Password: ${passwordController.text}");
                 },
                 child: const Text(
-                  'Login',
-                  style: TextStyle(color: Colors.black),
-                ),
+                  'Sign Up',
+                  style: TextStyle(color: Colors.black)),
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text("Don't have an account?"),
+                const Text('Already have an account?'),
                 TextButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUpPage()),
-                    );
+                    Navigator.pop(context);
                   },
                   child: const Text(
-                    'Sign Up',
+                    'Sign in',
                     style: TextStyle(fontSize: 20, color: Colors.pink),
                   ),
                 ),
