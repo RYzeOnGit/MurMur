@@ -16,14 +16,14 @@ class SignUpPage extends StatelessWidget {
           ),
         ),
         iconTheme: const IconThemeData(
-          color: Colors.white,
+          color: Colors.black,
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.purple,
       ),
+      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: [
             const Text(
               'Neeche se sign up karein💋',
@@ -42,6 +42,9 @@ class SignUpPage extends StatelessWidget {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'User Name',
+                  labelStyle: TextStyle(color: Colors.white),
+                  filled: true,
+                  fillColor: Colors.cyan, // Set the background color here
                 ),
               ),
             ),
@@ -53,6 +56,9 @@ class SignUpPage extends StatelessWidget {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email',
+                  labelStyle: TextStyle(color: Colors.white),
+                  filled: true,
+                  fillColor: Colors.cyan, // Set the background color here
                 ),
               ),
             ),
@@ -65,6 +71,9 @@ class SignUpPage extends StatelessWidget {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
+                  labelStyle: TextStyle(color: Colors.white),
+                  filled: true,
+                  fillColor: Colors.cyan, // Set the background color here
                 ),
               ),
             ),
@@ -82,6 +91,9 @@ class SignUpPage extends StatelessWidget {
             SizedBox(
               width: 200, // Adjust the width as needed
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.cyan, // Set the background color here
+                ),
                 onPressed: () {
                   print("Username: ${usernameController.text}");
                   print("Email: ${emailController.text}");
@@ -89,7 +101,7 @@ class SignUpPage extends StatelessWidget {
                 },
                 child: const Text(
                   'Sign Up',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ),
@@ -97,13 +109,16 @@ class SignUpPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text('Already have an account?'),
+                const Text(
+                  'Already have an account?',
+                  style: TextStyle(color: Colors.white),
+                ),
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   child: const Text(
-                    'Sign In',
+                    'Login',
                     style: TextStyle(fontSize: 20, color: Colors.pink),
                   ),
                 ),
