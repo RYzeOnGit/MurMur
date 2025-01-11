@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'SignUpPage.dart';
+import "SignUpPage.dart";
 
 class LoginPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
@@ -9,35 +9,34 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(
+        title: const Text(
           "Login Page",
           style: TextStyle(
             color: Colors.white,
           ),
         ),
-        iconTheme: IconThemeData(
-          color: Colors.white
-          ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+        backgroundColor: Colors.black,
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: ListView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(10),
-              child: const Text(
-                'Neeche login karein💋',
-                style: TextStyle(
-                  color: Colors.pink,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 30,
-                ),
+            const Text(
+              'Neeche Login karein💋',
+              style: TextStyle(
+                color: Colors.pink,
+                fontWeight: FontWeight.w500,
+                fontSize: 25,
               ),
+              textAlign: TextAlign.center,
             ),
-            Container(
-              padding: const EdgeInsets.all(10),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: 500, // Adjust the width as needed
               child: TextField(
                 controller: usernameController,
                 decoration: const InputDecoration(
@@ -46,8 +45,10 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(10),
+            
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 500, // Adjust the width as needed
               child: TextField(
                 controller: passwordController,
                 obscureText: true,
@@ -57,17 +58,20 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
+
+            const SizedBox(height: 10),
             TextButton(
               onPressed: () {
                 // Forgot password functionality
               },
               child: const Text(
                 'Forgot Password',
+                style: TextStyle(color: Colors.pink),
               ),
             ),
-            Container(
-              height: 50,
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 200, // Adjust the width as needed
               child: ElevatedButton(
                 onPressed: () {
                   print("Username: ${usernameController.text}");
@@ -79,6 +83,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
