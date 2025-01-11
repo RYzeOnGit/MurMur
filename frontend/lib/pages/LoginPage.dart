@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "SignUpPage.dart";
+import 'ForgotPassword.dart';
 
 class LoginPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
@@ -62,7 +63,11 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 10),
             TextButton(
               onPressed: () {
-                // Forgot password functionality
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ForgotPassword()
+                ),
+                );
               },
               child: const Text(
                 'Forgot Password',
