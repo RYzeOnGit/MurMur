@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'LoginPage.dart';
 
 class SignUpPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();  
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +17,17 @@ class SignUpPage extends StatelessWidget {
           ),
         ),
         iconTheme: const IconThemeData(
-          color: Colors.black,
+          color: Colors.white,
         ),
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.black,
       ),
-      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(10),
-        child: ListView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Neeche se sign up karein💋',
+              'Neeche Login karein💋',
               style: TextStyle(
                 color: Colors.pink,
                 fontWeight: FontWeight.w500,
@@ -42,26 +43,23 @@ class SignUpPage extends StatelessWidget {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'User Name',
-                  labelStyle: TextStyle(color: Colors.white),
-                  filled: true,
-                  fillColor: Colors.cyan, // Set the background color here
                 ),
               ),
             ),
+
             const SizedBox(height: 10),
             SizedBox(
               width: 500, // Adjust the width as needed
               child: TextField(
-                controller: emailController,
+                controller: passwordController,
+                obscureText: true,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Email',
-                  labelStyle: TextStyle(color: Colors.white),
-                  filled: true,
-                  fillColor: Colors.cyan, // Set the background color here
+                  labelText: 'Email Id',
                 ),
               ),
             ),
+            
             const SizedBox(height: 10),
             SizedBox(
               width: 500, // Adjust the width as needed
@@ -71,37 +69,22 @@ class SignUpPage extends StatelessWidget {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
-                  labelStyle: TextStyle(color: Colors.white),
-                  filled: true,
-                  fillColor: Colors.cyan, // Set the background color here
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            TextButton(
-              onPressed: () {
-                // Forgot password functionality
-              },
-              child: const Text(
-                'Forgot Password',
-                style: TextStyle(color: Colors.pink),
-              ),
-            ),
+
             const SizedBox(height: 10),
             SizedBox(
               width: 200, // Adjust the width as needed
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.cyan, // Set the background color here
-                ),
                 onPressed: () {
                   print("Username: ${usernameController.text}");
-                  print("Email: ${emailController.text}");
                   print("Password: ${passwordController.text}");
+                  print("Email: ${emailController.text}");
                 },
                 child: const Text(
                   'Sign Up',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.black),
                 ),
               ),
             ),
@@ -109,16 +92,16 @@ class SignUpPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text(
-                  'Already have an account?',
-                  style: TextStyle(color: Colors.white),
-                ),
+                const Text("Already have an account?"),
                 TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
                   },
                   child: const Text(
-                    'Login',
+                    'Sign Up',
                     style: TextStyle(fontSize: 20, color: Colors.pink),
                   ),
                 ),
