@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
+  @override
+  _SignUpPageState createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  // Define separate controllers for each field
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();  
+  final TextEditingController emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up controllers
+    usernameController.dispose();
+    passwordController.dispose();
+    emailController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,8 +66,7 @@ class SignUpPage extends StatelessWidget {
             SizedBox(
               width: 500, // Adjust the width as needed
               child: TextField(
-                controller: passwordController,
-                obscureText: true,
+                controller: emailController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email Id',
