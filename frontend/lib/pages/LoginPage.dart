@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import "SignUpPage.dart";
+import 'SignUpPage.dart';
 import 'ForgotPassword.dart';
 import 'feed.dart'; // Import the FeedPage
 
@@ -77,7 +77,6 @@ class LoginPage extends StatelessWidget {
               width: 200, // Adjust the width as needed
               child: ElevatedButton(
                 onPressed: () {
-                  // Add your login validation logic here
                   if (usernameController.text.isNotEmpty &&
                       passwordController.text.isNotEmpty) {
                     // Navigate to FeedPage
