@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "SignUpPage.dart";
 import 'ForgotPassword.dart';
+import 'feed.dart'; // Import the FeedPage
 
 class LoginPage extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
@@ -46,7 +47,6 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            
             const SizedBox(height: 10),
             SizedBox(
               width: 500, // Adjust the width as needed
@@ -59,14 +59,12 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 10),
             TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ForgotPassword()
-                ),
+                  MaterialPageRoute(builder: (context) => ForgotPassword()),
                 );
               },
               child: const Text(
@@ -79,8 +77,22 @@ class LoginPage extends StatelessWidget {
               width: 200, // Adjust the width as needed
               child: ElevatedButton(
                 onPressed: () {
-                  print("Username: ${usernameController.text}");
-                  print("Password: ${passwordController.text}");
+                  // Add your login validation logic here
+                  if (usernameController.text.isNotEmpty &&
+                      passwordController.text.isNotEmpty) {
+                    // Navigate to FeedPage
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => FeedPage()),
+                    );
+                  } else {
+                    // Show an error or a dialog if needed
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Please enter username and password"),
+                      ),
+                    );
+                  }
                 },
                 child: const Text(
                   'Login',
