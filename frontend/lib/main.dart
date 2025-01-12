@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:frontend/themes/lightmode.dart';
+// import 'package:provider/provider.dart';
 import 'pages/homepage.dart';
-import 'themes/themeprovider.dart';
+// import 'themes/themeprovider.dart';
  
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Homepage(),
-      theme: Provider.of<Themeprovider>(context).themeData,
+      theme: lightmode,
     );
   }
 }
