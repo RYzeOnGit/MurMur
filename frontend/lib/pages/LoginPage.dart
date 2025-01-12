@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
-import "SignUpPage.dart";
+import 'SignUpPage.dart';
 import 'ForgotPassword.dart';
 import 'feed.dart'; // Import the FeedPage
+import '../loading.dart'; // Import the Loading widget
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  void showLoadingDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: Loading(),
+        );
+      },
+    );
+  }
+
+  void hideLoadingDialog(BuildContext context) {
+    Navigator.of(context).pop();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,14 +100,16 @@ class LoginPage extends StatelessWidget {
               width: 200, // Adjust the width as needed
               child: ElevatedButton(
                 onPressed: () {
-                  // Add your login validation logic here
                   if (usernameController.text.isNotEmpty &&
                       passwordController.text.isNotEmpty) {
-                    // Navigate to FeedPage
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => FeedPage()),
-                    );
+                    showLoadingDialog(context);
+                    Future.delayed(Duration(seconds: 3), () {
+                      hideLoadingDialog(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FeedPage()),
+                      );
+                    });
                   } else {
                     // Show an error or a dialog if needed
                     ScaffoldMessenger.of(context).showSnackBar(
