@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
-import 'feed.dart'; // Import the FeedPage
 
 class SignUpPage extends StatefulWidget {
   @override
@@ -59,7 +58,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 20),
               Center(
                 child: SizedBox(
-                  width: 500, // Adjust the width as needed
+                  width: 300, // Adjust the width as needed
                   child: TextField(
                     controller: usernameController,
                     decoration: const InputDecoration(
@@ -72,7 +71,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 10),
               Center(
                 child: SizedBox(
-                  width: 500, // Adjust the width as needed
+                  width: 300, // Adjust the width as needed
                   child: TextField(
                     controller: emailController,
                     decoration: const InputDecoration(
@@ -85,7 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 10),
               Center(
                 child: SizedBox(
-                  width: 500, // Adjust the width as needed
+                  width: 300, // Adjust the width as needed
                   child: TextField(
                     controller: passwordController,
                     obscureText: true,
