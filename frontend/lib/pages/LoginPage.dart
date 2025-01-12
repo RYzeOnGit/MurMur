@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'SignUpPage.dart';
 import 'ForgotPassword.dart';
-import 'feed.dart'; // Import the FeedPage
-import '../loading.dart'; // Import the Loading widget
+import 'feed.dart'; 
+import '../loading.dart'; 
 
 class LoginPage extends StatefulWidget {
   @override
@@ -100,6 +100,7 @@ class _LoginPageState extends State<LoginPage> {
               width: 200, // Adjust the width as needed
               child: ElevatedButton(
                 onPressed: () {
+                  // Add your login validation logic here
                   if (usernameController.text.isNotEmpty &&
                       passwordController.text.isNotEmpty) {
                     showLoadingDialog(context);
