@@ -11,6 +11,9 @@ class FeedPage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
         backgroundColor: Colors.black,
       ),
       body: ListView.builder(
